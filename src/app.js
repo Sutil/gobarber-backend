@@ -1,5 +1,5 @@
 import express from 'express';
-import { resolve } from  'path';
+import { resolve } from 'path';
 import routes from './routes';
 
 import './database';
