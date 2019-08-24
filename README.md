@@ -1,56 +1,62 @@
-conceitos importantes:
+# Dev
 
-# Sucrase
+Para executar esse projeto siga as instruções abaixo:
 
-Ajuda usar funcionalidades do javascript, como sintaxe de import e export
-
-```
-yarn add sucrase nodemon -D
-```
-
-# sequelize
-
-ORM para node com bancos relacionais.
+criar arquivo `.env` na raiz tento o seguinte formato:
 
 ```
-yarn add sequelize
-yarn add sequelize -D
-```
+APP_URL=
+NODE_ENV=
 
-configurar o banco de dados em src/config/database.js
+# Auth
 
-```module.exports = {
-  dialect: 'postgres',
-  host: 'localhost',
-  username: 'postgres',
-  password: 'docker',
-  database: 'gobarber',
-  port: 5433,
-  define: {
-    timestamps: true,
-    underscored: true,
-    underscoredAll: true,
-  },
-};
-```
+APP_SECRET=f29618255c309de4469993cce24286ea
 
-criar `.sequelizarc` na raiz
+# Database
 
-conteúdo do arquivo
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASS=docker
+DB_NAME=gobarber
 
-```
-const { resolve } = require('path');
+# MONGO
 
-module.exports = {
-  config: resolve(__dirname, 'src', 'config', 'database.js'),
-  'models-path': resolve(__dirname, 'src', 'app', 'models'),
-  'migrations-path': resolve(__dirname, 'src', 'database', 'migrations'),
-  'seeders-path': resolve(__dirname, 'src', 'database', 'seeds')
-}
+MONGO_URL=mongodb://localhost:27020/gobarber
+
+# Redis
+
+REDIS_HOST=localhost
+REDIS_PORT=6380
+
+# Mail
+
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USER=62bac25f963075
+MAIL_PASS=62ad933d9a609c
+
+# Sentry
+
+SENTRY_DSN=
+
 ```
 
 
-# Criar uma migration
+# criar instancia do postgres no docker
+
+`docker run --name gobarber-database -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres`
+
+# criar instancia do mongo no docker
+
+`docker run --name gobarber-mongo -e POSTGRES_PASSWORD=mysecretpassword -p 27017:27017 -d -t mongo`
+
+# criar instancia do servidor redis no docker
+
+`docker run --name gobarber-redis -p 6379:6379 -d -t redis:alpine`
+
+# executar aplicação
+
 ```
-yarn sequelize migration:create --name=<nome-da-migration>
+yarn dev
+yarn queue
 ```
