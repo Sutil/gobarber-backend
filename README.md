@@ -1,4 +1,9 @@
-# Dev
+# GoBarber
+
+Backend em Node de aplicação de agendamento de horários em barbearia.
+
+
+# Ambiente Dev
 
 Para executar esse projeto siga as instruções abaixo:
 
@@ -42,19 +47,19 @@ SENTRY_DSN=
 ```
 
 
-# criar instancia do postgres no docker
+## criar instancia do postgres no docker
 
 `docker run --name gobarber-database -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres`
 
-# criar instancia do mongo no docker
+## criar instancia do mongo no docker
 
 `docker run --name gobarber-mongo -e POSTGRES_PASSWORD=mysecretpassword -p 27017:27017 -d -t mongo`
 
-# criar instancia do servidor redis no docker
+## criar instancia do servidor redis no docker
 
 `docker run --name gobarber-redis -p 6379:6379 -d -t redis:alpine`
 
-# executar aplicação
+## executar aplicação
 
 ```
 yarn dev
