@@ -10,8 +10,8 @@ Para executar esse projeto siga as instruções abaixo:
 criar arquivo `.env` na raiz tento o seguinte formato:
 
 ```
-APP_URL=
-NODE_ENV=
+APP_URL=http://localhost:3333
+NODE_ENV=development
 
 # Auth
 
